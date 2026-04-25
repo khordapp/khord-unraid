@@ -193,4 +193,15 @@
     Required="false"
     Mask="false">/data/khord.db</Config>
 
+  <Config
+    Name="Thumbnail Cache Directory"
+    Target="THUMBNAIL_CACHE_DIR"
+    Default="/data/thumbnails"
+    Mode=""
+    Description="Directory for the server-side album art disk cache. Lives inside the Data Path volume by default. Manage cache size from the admin panel (Admin → Cache tab)."
+    Type="Variable"
+    Display="advanced"
+    Required="false"
+    Mask="false">/data/thumbnails</Config>
+
 </Container>
