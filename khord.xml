@@ -11,8 +11,9 @@
   <Overview>
     Khord is a decentralized music sharing platform built on the AT Protocol (Bluesky).
     Share songs once — your followers listen on whichever streaming service they use
-    (Spotify, Apple Music, Tidal, and more). Setlists, voting, and cross-platform links
-    all included. No central database — records live in each user's AT Protocol PDS.
+    (Spotify, Apple Music, Tidal, and more). Setlists, voting, cross-platform links,
+    and an owner admin panel all included. No central database — records live in each
+    user's AT Protocol PDS.
 
     No Caddy/reverse proxy is included — point your existing Unraid reverse proxy
     (NGINX Proxy Manager, Swag, Traefik, etc.) at port 3000 on this container.
@@ -74,7 +75,7 @@
     Target="PUBLIC_SPOTIFY_CLIENT_ID"
     Default=""
     Mode=""
-    Description="Spotify app client ID from developer.spotify.com. Optional — enables Spotify search results."
+    Description="Spotify app client ID from developer.spotify.com. Optional — enables Spotify URL resolution when sharing songs. Both Client ID and Client Secret are required together."
     Type="Variable"
     Display="always"
     Required="false"
@@ -85,7 +86,7 @@
     Target="SPOTIFY_CLIENT_SECRET"
     Default=""
     Mode=""
-    Description="Spotify app client secret. Keep this private."
+    Description="Spotify app client secret from developer.spotify.com. Required alongside Spotify Client ID. Keep this private."
     Type="Variable"
     Display="always"
     Required="false"
@@ -180,6 +181,17 @@
     Display="advanced"
     Required="false"
     Mask="false">false</Config>
+
+  <Config
+    Name="Theme"
+    Target="PUBLIC_THEME"
+    Default="dark"
+    Mode=""
+    Description="UI color theme. Requires a container restart to apply. Options — neutral dark: dark, zinc, slate, gray, neutral, stone. Neutral light: light, zinc-light, slate-light, neutral-light, stone-light. Chromatic dark: navy, teal, emerald, rose, violet."
+    Type="Variable"
+    Display="advanced"
+    Required="false"
+    Mask="false">dark</Config>
 
   <!-- ── Database ── -->
   <Config

@@ -9,14 +9,15 @@
   <Support>https://github.com/khordapp/khord/issues</Support>
   <Project>https://github.com/khordapp/khord</Project>
   <Overview>
-    Firehose indexer for Khord. Subscribes to the AT Protocol firehose and writes
-    songs, votes, and proposals from followed users into a local SQLite database,
-    enabling the Khord app to serve a fast AppView feed.
+    Firehose indexer for Khord. Subscribes to the AT Protocol relay firehose and
+    writes songs, votes, and proposals into a local SQLite database, enabling the
+    Khord app to serve a fast feed without fetching each user's PDS individually.
 
     The Data Path must be set to the same directory as in the khord container so
     both containers share the same SQLite database file.
 
     This container has no web interface. Start the khord container first.
+    The indexer resumes from where it left off after a restart — no data is lost.
   </Overview>
   <Category>MediaApp:Music</Category>
   <WebUI/>
@@ -57,7 +58,7 @@
     Target="FIREHOSE_RELAY"
     Default="wss://bsky.network"
     Mode=""
-    Description="AT Protocol firehose relay URL to subscribe to."
+    Description="AT Protocol firehose relay URL. The default (wss://bsky.network) connects to the main Bluesky network and is correct for almost all installations. Only change this if you are running a custom AT Protocol relay."
     Type="Variable"
     Display="advanced"
     Required="false"
