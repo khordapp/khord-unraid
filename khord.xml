@@ -195,11 +195,11 @@
 
   <!-- ── Database ── -->
   <Config
-    Name="Database Path"
+    Name="Database Filename"
     Target="INDEXER_DB_PATH"
     Default="/data/khord.db"
     Mode=""
-    Description="Path to the SQLite database file inside the container. Only change if you have a reason to move it from the default."
+    Description="Full path to the SQLite database file inside the container. The directory must match the Data Path mount. The filename rarely needs changing."
     Type="Variable"
     Display="advanced"
     Required="false"

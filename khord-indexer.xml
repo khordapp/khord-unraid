@@ -43,13 +43,13 @@
 
   <!-- ── Variables ── -->
   <Config
-    Name="Database Path"
+    Name="Database Filename"
     Target="INDEXER_DB_PATH"
     Default="/data/khord.db"
     Mode=""
-    Description="Path to the SQLite database file inside the container. Must match the Database Path set in the khord container."
+    Description="Full path to the SQLite database file inside the container. Must match the Database Filename set in the khord container. The directory must match the Data Path mount."
     Type="Variable"
-    Display="always"
+    Display="advanced"
     Required="false"
     Mask="false">/data/khord.db</Config>
 
