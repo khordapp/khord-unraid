@@ -195,7 +195,7 @@
 
   <!-- ── Database ── -->
   <Config
-    Name="Database Filename"
+    Name="Database Path"
     Target="INDEXER_DB_PATH"
     Default="/data/khord.db"
     Mode=""
