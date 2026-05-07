@@ -11,7 +11,7 @@
   <Overview>
     Khord is a decentralized music sharing platform built on the AT Protocol (Bluesky).
     Share songs once — your followers listen on whichever streaming service they use
-    (Spotify, Apple Music, Tidal, and more). Setlists, voting, cross-platform links,
+    (Apple Music, Spotify, YouTube Music, Deezer, and more). Setlists, voting, cross-platform links,
     and an owner admin panel all included. No central database — records live in each
     user's AT Protocol PDS.
 
@@ -87,6 +87,18 @@
     Default=""
     Mode=""
     Description="Spotify app client secret from developer.spotify.com. Required alongside Spotify Client ID. Keep this private."
+    Type="Variable"
+    Display="always"
+    Required="false"
+    Mask="true"/>
+
+  <!-- ── YouTube Music (optional) ── -->
+  <Config
+    Name="YouTube API Key"
+    Target="YOUTUBE_API_KEY"
+    Default=""
+    Mode=""
+    Description="YouTube Data API v3 key from console.cloud.google.com. Optional — enables YouTube Music URL resolution when sharing songs. Also enable YouTube Music in the admin panel Settings tab. Note: free quota is ~100 searches/day (100 units per call, 10,000/day limit)."
     Type="Variable"
     Display="always"
     Required="false"
