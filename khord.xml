@@ -26,7 +26,7 @@
   <Category>MediaApp:Music</Category>
   <WebUI>http://[IP]:[PORT:3000]/</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/khordapp/khord-unraid/main/khord.xml</TemplateURL>
-  <Icon>https://raw.githubusercontent.com/khordapp/khord/main/static/icon.png</Icon>
+  <Icon>https://raw.githubusercontent.com/khordapp/khord/main/static/khord-logo-dark.png</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>

@@ -22,7 +22,7 @@
   <Category>MediaApp:Music</Category>
   <WebUI/>
   <TemplateURL>https://raw.githubusercontent.com/khordapp/khord-unraid/main/khord-indexer.xml</TemplateURL>
-  <Icon>https://raw.githubusercontent.com/khordapp/khord/main/static/icon.png</Icon>
+  <Icon>https://raw.githubusercontent.com/khordapp/khord/main/static/khord-logo-dark.png</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
