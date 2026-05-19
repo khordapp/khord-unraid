@@ -26,7 +26,7 @@
   <Category>MediaApp:Music</Category>
   <WebUI>http://[IP]:[PORT:3000]/</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/khordapp/khord-unraid/main/khord.xml</TemplateURL>
-  <Icon>https://raw.githubusercontent.com/khordapp/khord/main/static/khord-logo-dark.png</Icon>
+  <Icon>https://raw.githubusercontent.com/khordapp/khord/main/static/khord-logo.png</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
@@ -51,7 +51,7 @@
     Target="/data"
     Default="/mnt/user/appdata/khord/data"
     Mode="rw"
-    Description="Directory for the SQLite database. Must match the Data Path set in the khord-indexer container."
+    Description="Directory where the SQLite database is stored. Must be the same path used in the khord-indexer container so both containers share the same database file."
     Type="Path"
     Display="always"
     Required="true"
@@ -99,6 +99,18 @@
     Default=""
     Mode=""
     Description="YouTube Data API v3 key from console.cloud.google.com. Optional — enables YouTube Music URL resolution when sharing songs. Also enable YouTube Music in the admin panel Settings tab. Note: free quota is ~100 searches/day (100 units per call, 10,000/day limit)."
+    Type="Variable"
+    Display="always"
+    Required="false"
+    Mask="true"/>
+
+  <!-- ── Apple Music (optional) ── -->
+  <Config
+    Name="Apple Music Developer Token"
+    Target="PUBLIC_APPLE_MUSIC_DEV_TOKEN"
+    Default=""
+    Mode=""
+    Description="MusicKit JWT from developer.apple.com → Keys. Optional — enables Apple Music playlist import. Requires an Apple Developer account ($99/yr). Tokens are valid up to 6 months; regenerate before expiry. After setting, enable in the instance admin panel under Settings."
     Type="Variable"
     Display="always"
     Required="false"
@@ -207,15 +219,15 @@
 
   <!-- ── Database ── -->
   <Config
-    Name="Database Path"
-    Target="INDEXER_DB_PATH"
-    Default="/data/khord.db"
+    Name="Database File Name"
+    Target="INDEXER_DB_NAME"
+    Default="khord.db"
     Mode=""
-    Description="Full path to the SQLite database file inside the container. The directory must match the Data Path mount. The filename rarely needs changing."
+    Description="File name of the SQLite database stored in the Data Path directory. Only change this if you need to rename the database file. Must match the Database File Name set in the khord-indexer container."
     Type="Variable"
     Display="advanced"
     Required="false"
-    Mask="false">/data/khord.db</Config>
+    Mask="false">khord.db</Config>
 
   <Config
     Name="Thumbnail Cache Directory"

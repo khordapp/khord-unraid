@@ -38,7 +38,7 @@ Or apply them directly from the raw URLs:
 3. Point your Unraid reverse proxy (NGINX Proxy Manager, Swag, Traefik, etc.) at **khord** on port 3000
 4. Set `PUBLIC_APP_URL` to your public HTTPS URL — AT Protocol OAuth requires it
 
-See the [main Khord README](https://github.com/khordapp/khord#readme) for full environment variable documentation.
+See the [Khord admin guide](https://github.com/khordapp/khord/blob/main/docs/admin.md) for the full reference — environment variables, streaming integrations (Spotify, YouTube Music, Apple Music), themes, access control, admin panel walkthrough, and backup.
 
 ## Notes
 

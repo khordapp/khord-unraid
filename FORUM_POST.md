@@ -2,9 +2,9 @@
 
 ## What is Khord?
 
-Khord is a self-hosted music sharing platform built on the AT Protocol (the same network as Bluesky). You share a song once and your followers can listen on whichever streaming service they use — Spotify, Apple Music, Tidal, Deezer, and more. There's no central database; records live in each user's AT Protocol identity, so your instance is just the interface and local feed cache.
+Khord is a self-hosted music sharing platform built on the AT Protocol (the same network as Bluesky). You share a song once and your followers can listen on whichever streaming service they use — Spotify, Apple Music, YouTube Music, Deezer, and more. There's no central database; records live in each user's AT Protocol identity, so your instance is just the interface and local feed cache.
 
-Features include cross-platform song sharing, setlists (collaborative playlists), upvoting, an admin panel for managing users and access control, and multiple UI themes.
+Features include cross-platform song sharing, setlists (collaborative playlists), Apple Music playlist import, upvoting, an admin panel for managing users and access control, and multiple UI themes.
 
 ---
 
@@ -34,7 +34,10 @@ Both are available in Community Applications. Set both containers' **Data Path**
 | **App URL** | Required. Your public HTTPS URL. Must match the AT Protocol OAuth redirect URI exactly. |
 | **Owner DIDs** | Your AT Protocol DID — grants access to the `/admin` panel. Find it at: `https://bsky.social/xrpc/com.atproto.identity.resolveHandle?handle=your.handle` |
 | **Data Path** | Must be identical in both khord and khord-indexer containers. |
+| **Database File Name** | `khord.db` by default. Only change if you need to rename the database file — must match in both containers. |
 | **Spotify Client ID / Secret** | Optional. From developer.spotify.com. Enables Spotify URL resolution when sharing songs. |
+| **YouTube API Key** | Optional. YouTube Data API v3 key from console.cloud.google.com. Enables YouTube Music links. Also enable YouTube Music in the admin panel Settings tab. Free quota is ~100 searches/day. |
+| **Apple Music Developer Token** | Optional. MusicKit JWT from developer.apple.com → Keys. Enables Apple Music playlist import. Requires an Apple Developer account ($99/yr). Tokens are valid up to 6 months. After setting, enable in the admin panel Settings tab. |
 | **Theme** | Requires a container restart to apply. Options: `dark` (default), `slate`, `navy`, `teal`, `emerald`, `rose`, `violet`, and several light variants. |
 
 ---
