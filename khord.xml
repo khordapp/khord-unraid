@@ -9,19 +9,14 @@
   <Support>https://github.com/khordapp/khord/issues</Support>
   <Project>https://github.com/khordapp/khord</Project>
   <Overview>
-    Khord is a decentralized music sharing platform built on the AT Protocol (Bluesky).
-    Share songs once — your followers listen on whichever streaming service they use
-    (Apple Music, Spotify, YouTube Music, Deezer, and more). Setlists, voting, cross-platform links,
-    and an owner admin panel all included. No central database — records live in each
-    user's AT Protocol PDS.
+    Khord is a self-hosted music sharing app. Share a song once — your followers listen on
+    whichever streaming service they use (Spotify, Apple Music, YouTube Music, Deezer, and more).
+    Setlists, upvoting, cross-platform links, and an admin panel all included. All data stored
+    in a single SQLite database — no external services required.
 
-    No Caddy/reverse proxy is included — point your existing Unraid reverse proxy
+    No reverse proxy is included — point your existing Unraid reverse proxy
     (NGINX Proxy Manager, Swag, Traefik, etc.) at port 3000 on this container.
-    AT Protocol OAuth requires a publicly accessible HTTPS URL, so a reverse proxy
-    with a valid TLS certificate is required.
-
-    Also install the khord-indexer container (same Data Path) to enable the AppView
-    feed. Without it the app still works via direct PDS fetching.
+    HTTPS is required for a publicly accessible instance.
   </Overview>
   <Category>MediaApp:Music</Category>
   <WebUI>http://[IP]:[PORT:3000]/</WebUI>
@@ -51,7 +46,7 @@
     Target="/data"
     Default="/mnt/user/appdata/khord/data"
     Mode="rw"
-    Description="Directory where the SQLite database is stored. Must be the same path used in the khord-indexer container so both containers share the same database file."
+    Description="Directory where the SQLite database and thumbnail cache are stored."
     Type="Path"
     Display="always"
     Required="true"
@@ -63,10 +58,21 @@
     Target="PUBLIC_APP_URL"
     Default=""
     Mode=""
-    Description="Publicly accessible URL for this instance, e.g. https://khord.yourdomain.com. Must match the AT Protocol OAuth redirect URI."
+    Description="Publicly accessible URL for this instance, e.g. https://khord.yourdomain.com."
     Type="Variable"
     Display="always"
     Required="true"
+    Mask="false"/>
+
+  <Config
+    Name="Owner Emails"
+    Target="OWNER_EMAILS"
+    Default=""
+    Mode=""
+    Description="Comma-separated email addresses granted admin/owner privileges. The first account registered with a matching email receives the admin role automatically."
+    Type="Variable"
+    Display="always"
+    Required="false"
     Mask="false"/>
 
   <!-- ── Spotify (optional) ── -->
@@ -118,39 +124,6 @@
 
   <!-- ── Access control ── -->
   <Config
-    Name="Owner DIDs"
-    Target="OWNER_DIDS"
-    Default=""
-    Mode=""
-    Description="Comma-separated AT Protocol DIDs granted admin/owner privileges. Owners get access to the /admin panel. Find your DID at: https://bsky.social/xrpc/com.atproto.identity.resolveHandle?handle=your.handle"
-    Type="Variable"
-    Display="always"
-    Required="false"
-    Mask="false"/>
-
-  <Config
-    Name="Allowed DIDs"
-    Target="ALLOWED_DIDS"
-    Default=""
-    Mode=""
-    Description="Comma-separated AT Protocol DIDs allowed to sign in. Leave empty for open registration."
-    Type="Variable"
-    Display="always"
-    Required="false"
-    Mask="false"/>
-
-  <Config
-    Name="Banned DIDs"
-    Target="BANNED_DIDS"
-    Default=""
-    Mode=""
-    Description="Comma-separated AT Protocol DIDs blocked from signing in. Requires restart. For live bans without restart, use the /admin panel."
-    Type="Variable"
-    Display="always"
-    Required="false"
-    Mask="false"/>
-
-  <Config
     Name="Max Users"
     Target="MAX_USERS"
     Default="0"
@@ -185,17 +158,6 @@
     Mask="false">Music, across every platform.</Config>
 
   <Config
-    Name="Auth Provider Name"
-    Target="PUBLIC_AUTH_PROVIDER_NAME"
-    Default="Bluesky"
-    Mode=""
-    Description="Identity provider name shown in sign-in UI copy."
-    Type="Variable"
-    Display="advanced"
-    Required="false"
-    Mask="false">Bluesky</Config>
-
-  <Config
     Name="Disable Album Art"
     Target="DISABLE_ALBUM_ART"
     Default="false"
@@ -223,7 +185,7 @@
     Target="INDEXER_DB_NAME"
     Default="khord.db"
     Mode=""
-    Description="File name of the SQLite database stored in the Data Path directory. Only change this if you need to rename the database file. Must match the Database File Name set in the khord-indexer container."
+    Description="File name of the SQLite database stored in the Data Path directory. Only change this if you need to rename the database file."
     Type="Variable"
     Display="advanced"
     Required="false"
