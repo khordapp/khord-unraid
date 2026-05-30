@@ -2,8 +2,8 @@
 <Containers>
   <Profile>
     <Author>khordapp</Author>
-    <Overview>Khord is a decentralized music sharing platform built on the AT Protocol (Bluesky). Share songs once — your followers listen on whichever streaming service they use (Spotify, Apple Music, YouTube Music, Deezer, and more). Setlists, voting, cross-platform links, Apple Music playlist import, and an owner admin panel all included. No central database — records live in each user's AT Protocol PDS.</Overview>
-    <Description>Two containers are required: khord (the web app) and khord-indexer (the firehose subscriber). Both must share the same Data Path so they can read and write the same SQLite database. A reverse proxy with a valid TLS certificate pointed at port 3000 is required — AT Protocol OAuth does not work over plain HTTP.</Description>
+    <Overview>Khord is a self-hosted music sharing platform. Share songs once — your followers listen on whichever streaming service they use (Spotify, Apple Music, YouTube Music, Deezer, and more). Setlists, voting, cross-platform links, Apple Music playlist import, and an owner admin panel all included. All data stored in a single SQLite database on your server.</Overview>
+    <Description>A single container. Set the Data Path, point a reverse proxy with a valid TLS certificate at port 3000, and set PUBLIC_APP_URL to your public HTTPS URL. Set OWNER_EMAILS to your email address so the first account you register gets admin access.</Description>
     <Support>https://github.com/khordapp/khord/issues</Support>
     <Link>https://github.com/khordapp/khord</Link>
     <Icon>https://raw.githubusercontent.com/khordapp/khord/main/static/khord-logo.png</Icon>
