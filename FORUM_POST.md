@@ -37,6 +37,31 @@ Khord is a single container. Install it from Community Applications and set the 
 
 ---
 
+## Spotify Setup
+
+Spotify enables URL resolution (Spotify links appear on every shared song) and playlist import.
+
+1. Go to [developer.spotify.com](https://developer.spotify.com/dashboard) and create an app.
+2. Set the **Redirect URI** to `https://yourdomain.com/spotify/callback`.
+3. Copy the **Client ID** and **Client Secret** into the container template.
+4. In the Khord admin panel, go to **Settings** and enable **Spotify links**.
+
+> **Note:** The Spotify account that owns the developer app must have an active **Spotify Premium** subscription, otherwise the API will reject requests.
+
+---
+
+## Apple Music Setup
+
+Apple Music enables playlist import. It requires an Apple Developer account ($99/yr).
+
+1. Sign in to [developer.apple.com](https://developer.apple.com) and go to **Certificates, Identifiers & Profiles → Keys**.
+2. Create a new key, enable **MusicKit**, and download it (you can only download once).
+3. Generate a JWT developer token using your Key ID, Team ID, and the downloaded `.p8` file. Tokens are valid up to 6 months — regenerate before expiry.
+4. Paste the token into the **Apple Music Developer Token** field in the container template, **or** enter it directly in the Khord admin panel under **Settings** (no restart required).
+5. In the admin panel, enable **Apple Music playlist import**.
+
+---
+
 ## Access Control
 
 By default, anyone can register with an email address. You can restrict this from the admin panel:
