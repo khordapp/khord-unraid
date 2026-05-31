@@ -2,9 +2,9 @@
 
 ## What is Khord?
 
-Khord is a self-hosted music sharing app. Share a song once and your followers can listen on whichever streaming service they use — Spotify, Apple Music, YouTube Music, Deezer, and more. Sign in with an email address and password — no third-party accounts required. All data lives in a single SQLite database on your server.
+Khord is a self-hosted music sharing app. Share a song once and everyone can listen on whichever streaming service they use — Spotify, Apple Music, YouTube Music, Deezer, and more. Sign in with an email address and password — no third-party accounts required. All data lives in a single SQLite database on your server.
 
-Features include cross-platform song sharing, mixtapes (collaborative playlists), Apple Music playlist import, upvoting, an admin panel for managing users and access control, and multiple UI themes.
+Features include cross-platform song sharing, mixtapes (collaborative playlists), playlist import from Spotify, Apple Music, Deezer, and YouTube Music, upvoting, an admin panel for managing users and access control, and multiple UI themes.
 
 ---
 
@@ -30,10 +30,10 @@ Khord is a single container. Install it from Community Applications and set the 
 | **Owner Emails** | Comma-separated email addresses that get admin access to `/admin`. |
 | **Data Path** | Where the SQLite database and thumbnail cache are stored. |
 | **Database File Name** | `khord.db` by default. Only change if you need to rename the database file. |
-| **Spotify Client ID / Secret** | Optional. From developer.spotify.com. Enables Spotify URL resolution when sharing songs. |
+| **Spotify Client ID / Secret** | Optional. From developer.spotify.com. Enables Spotify URL resolution and playlist import. After setting, enable Spotify in the admin panel Settings tab. Note: the account that owns the Spotify app must have an active Spotify Premium subscription. |
 | **YouTube API Key** | Optional. YouTube Data API v3 key from console.cloud.google.com. Enables YouTube Music links. Also enable YouTube Music in the admin panel Settings tab. Free quota is ~100 searches/day. |
 | **Apple Music Developer Token** | Optional. MusicKit JWT from developer.apple.com → Keys. Enables Apple Music playlist import. Requires an Apple Developer account ($99/yr). Tokens are valid up to 6 months. After setting, enable in the admin panel Settings tab. |
-| **Theme** | Requires a container restart to apply. Options: `dark` (default), `slate`, `navy`, `teal`, `emerald`, `rose`, `violet`, and several light variants. |
+| **Theme** | Requires a container restart to apply. Options — neutral dark: `dark` (default), `zinc`, `slate`, `gray`, `neutral`, `stone`. Neutral light: `light`, `zinc-light`, `slate-light`, `neutral-light`, `stone-light`. Chromatic dark: `navy`, `teal`, `emerald`, `rose`, `violet`. |
 
 ---
 
