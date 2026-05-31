@@ -1,13 +1,12 @@
 <?xml version="1.0"?>
-<Containers>
+<CommunityApplications>
   <Profile>
-    <Author>khordapp</Author>
-    <Overview>Khord is a self-hosted music sharing platform. Share songs once — everyone listens on whichever streaming service they use (Spotify, Apple Music, YouTube Music, Deezer, and more). Setlists, voting, cross-platform links, Apple Music playlist import, and an owner admin panel all included. All data stored in a single SQLite database on your server.</Overview>
-    <Description>A single container. Set the Data Path, point a reverse proxy with a valid TLS certificate at port 3000, and set PUBLIC_APP_URL to your public HTTPS URL. Set OWNER_EMAILS to your email address so the first account you register gets admin access.</Description>
-    <Support>https://github.com/khordapp/khord/issues</Support>
-    <Link>https://github.com/khordapp/khord</Link>
-    <Icon>https://raw.githubusercontent.com/khordapp/khord/main/static/khord-logo.png</Icon>
-    <Beta>yes</Beta>
-    <Repository>khordapp</Repository>
+Khord is a self-hosted music sharing app. Share a song once — everyone on your instance can listen on whichever streaming service they use (Spotify, Apple Music, YouTube Music, Deezer, and more).
+
+Features include cross-platform song sharing, mixtapes (collaborative playlists), playlist import from Spotify, Apple Music, Deezer, and YouTube Music, upvoting, an admin panel for managing users and access control, and multiple UI themes. All data stored in a single SQLite database — no external services required.
+
+For support, open an issue at https://github.com/khordapp/khord/issues
   </Profile>
-</Containers>
+  <Icon>https://raw.githubusercontent.com/khordapp/khord/main/static/khord-logo.png</Icon>
+  <WebPage>https://github.com/khordapp/khord</WebPage>
+</CommunityApplications>
